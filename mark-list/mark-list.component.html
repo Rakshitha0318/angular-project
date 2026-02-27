@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-9 mx-auto">
+        <h4 class="text-center text-uppercase">Mark-list</h4>
+        <button (click)="createUser()">Create Mark</button>
+      <table class="table table-striped" >
+           <thead>
+           <tr>
+            <th>StudentId</th>
+             <th>Subject</th>
+            <th>Score</th>
+             <th>exam_year</th>
+           </tr>
+           </thead>
+           <tbody>
+            
+            <tr *ngFor="let mark of marklist">
+                <td>{{mark.student_id}}</td>
+                <td>{{mark.subject}}</td>
+                <td>{{mark.score}}</td>
+                <td>{{mark.exam_year}}</td>
+                <td><button class="btn btn-info"(click)="editMark(mark.mark_id)">Edit</button><button class="btn btn-danger"(click)="deleteMark(mark.mark_id)">Delete</button></td>
+            </tr>
+           
+               
+
+           </tbody>
+      </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-3" *ngFor="let product of products">
+        <div class="card mt-3">
+        <img [src]="product.thumbnail"class="card-img-top"alt="card image" height="200">
+
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text"><span class="text-center">Rs.{{product.price}}</span></p>
+            <a (click)="viewMore(product.id)" class="btn btn-primary">View More</a>
+        </div>
+        </div>
+    </div>
+</div>
