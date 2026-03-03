@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="col-12 mx-auto">
+        <h4 class="text-center text-uppercase">User-list</h4>
+        <div class="row">
+          <div class="col-4">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text"  [(ngModel)]="search" class="form-control"placeholder="search here"/>
+                    </div>
+                    <div class="col-2"> <button class="btn btn-primary"(click)="searchUser()">Search</button></div>
+                </div>
+            </div>
+            
+           
+          </div>
+        </div>
+      <table class="table table-striped" >
+           <thead>
+           <tr>
+            <th>UserId</th>
+             <th>UserName</th>
+            <th>Email</th>
+             <th>DOB</th>
+           </tr>
+           </thead>
+           <tbody>
+            
+            <tr *ngFor="let user of userlist">
+                <td>{{user.user_id}}</td>
+                <td>{{user.user_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.date_of_birth}}</td>
+                <td><button class="btn btn-info"(click)="editUser(user.user_id)">Edit</button><button class="btn btn-danger"(click)="deleteUser(user.user_id)">Delete</button></td>
+            </tr>
+           
+               
+
+           </tbody>
+      </table>
+      <nav aria-label="Page navigation example"class="float-end">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" (click)="previous()"[class.disabled]="currentPage==1">Previous</a></li>
+    <li class="page-item" *ngFor="let page of pages"><a class="page-link" [ngClass]="currentPage==page?'active':''" (click)="goTo(page)">{{page}}</a></li>
+    
+    <li class="page-item"><a class="page-link"(click)="next()"[class.disabled]="total_page==currentPage">Next</a></li>
+  </ul>
+</nav>
+    </div>
+

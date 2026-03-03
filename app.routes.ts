@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { MarksComponent } from './marks/marks.component';
 import { MarkListComponent } from './mark-list/mark-list.component';
 import { EditMarkComponent } from './edit-mark/edit-mark.component';
+import { UsersComponent } from './users/users.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 export const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -17,6 +19,8 @@ export const routes: Routes = [
    { path: 'product',canActivate:[authGuard] ,component: ProductComponent },
    { path: 'mark',canActivate:[authGuard] ,component:MarksComponent },
    { path: 'mark-list',canActivate:[authGuard] ,component:MarkListComponent },
+   { path: 'user',canActivate:[authGuard] ,component:UsersComponent },
+   { path: 'user-list',canActivate:[authGuard] ,component:UserListComponent},
    { path: 'login', component: LoginComponent },
 {path:"marks/:markId",canActivate:[authGuard],component:EditMarkComponent},
     {path:"product-details/:id",canActivate:[authGuard],component:ProductDetailsComponent},
