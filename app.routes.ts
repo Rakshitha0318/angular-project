@@ -11,6 +11,7 @@ import { MarkListComponent } from './mark-list/mark-list.component';
 import { EditMarkComponent } from './edit-mark/edit-mark.component';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 export const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -23,6 +24,7 @@ export const routes: Routes = [
    { path: 'user-list',canActivate:[authGuard] ,component:UserListComponent},
    { path: 'login', component: LoginComponent },
 {path:"marks/:markId",canActivate:[authGuard],component:EditMarkComponent},
+   {path:"create-product",canActivate:[authGuard],component:CreateProductComponent},
     {path:"product-details/:id",canActivate:[authGuard],component:ProductDetailsComponent},
     {path:"**",redirectTo:""}
 ];

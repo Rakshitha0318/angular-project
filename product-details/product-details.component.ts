@@ -20,7 +20,7 @@ export class ProductDetailsComponent {
     return
   }
   this.productService.getSingleProductDetail(id).subscribe(res=>{
-    this.product=res
+    this.product=res.product_detail
   })
  }
 }

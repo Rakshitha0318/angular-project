@@ -1,13 +1,48 @@
+
+ <div class="row">
+          <div class="col-4">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text"  [(ngModel)]="search" class="form-control"placeholder="search here"/>
+                    </div>
+                    <div class="col-2"> <button class="btn btn-primary"(click)="searchProduct()">Search</button></div>
+                </div>
+               <div class="col-9 mx-auto mt-3">
+               <button (click)="createProduct()">Create Product</button>
+                </div>
+            </div>
+            
+           
+          </div>
 <div class="row">
+
     <div class="col-3" *ngFor="let product of products">
         <div class="card mt-3">
-        <img [src]="product.thumbnail"class="card-img-top"alt="card image" height="200">
+        <img [src]="product.product_image"class="card-img-top"alt="card image" height="200">
 
         <div class="card-body">
-            <h5 class="card-title">{{product.title}}</h5>
-            <p class="card-text"><span class="text-center">Rs.{{product.price}}</span></p>
-            <a (click)="viewMore(product.id)" class="btn btn-primary">View More</a>
+            <h5 class="card-title">{{product.product_name}}</h5>
+            <p class="card-text"><span class="text-center">Rs.{{product.product_price}}</span></p>
+            <a (click)="viewMore(product.product_id)" class="btn btn-primary">View More</a>
+            <a (click)="deleteproduct(product.product_id)" class="btn btn-danger">Delete</a>
+
         </div>
+        
         </div>
+       
     </div>
+    
 </div>
+<div class="row mb-5 float-end" >
+<nav aria-label="Page navigation example"class="float-end">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" (click)="previous()"[class.disabled]="currentPage==1">Previous</a></li>
+    <li class="page-item" *ngFor="let page of pages"><a class="page-link"[ngClass]="currentPage==page?'active':''" (click)="goTo(page)">{{page}}</a></li>
+    
+    <li class="page-item"><a class="page-link"(click)="next()"[class.disabled]="total_page==currentPage">Next</a></li>
+  </ul>
+</nav>
+</div>
+ 
